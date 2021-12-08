@@ -6,51 +6,108 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:01:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/07 17:03:39 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/08 17:21:12 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int is_nbr(int argc ,char **argv)
+void	swap(t_stack *x, char c)
 {
-	int	i;
-	int j;
+	int	buffer;
 
-	i = 1;
-	while (i != argc)
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			// printf("argv[%i][%i] : %c\n", i, j, argv[i][j]);
-			if (!((argv[i][j] >= '0' && argv[i][j] <= '9')|| argv[i][j] == '-'))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	 return (0);
+	if (x->len < 2)
+		return ;
+	buffer = x->stack[0];
+	x->stack[0] = x->stack[1];
+	x->stack[1] = buffer;
+	if (c == 'a')
+		ft_putstr_fd("sa\n", 1);
+	else if (c == 'b')
+		ft_putstr_fd("sb\n", 1);
 }
 
-int	is_int(int argc, char **argv)
+void	push(t_stack *x, t_stack *y, char c)
 {
 	int	i;
 
-	i = 0;
-	while (i != argc)
+	if (y->len == 0)
+		return ;
+	x->len++;
+	i = -1;
+	while (++i < x->len)
+		x->stack[x->len - i - 1] = x->stack[x->len - i - 2];
+	x->stack[0] = y->stack[0];
+	i = -1;
+	while (++i < y->len)
+		y->stack[i] = y->stack[i + 1];
+	y->len--;
+	if (c == 'a')
+		ft_putstr_fd("pa\n", 1);
+	else if (c == 'b')
+		ft_putstr_fd("pb\n", 1);
+}
+
+void 	rotate(t_stack *x, char c)
+{
+	int	i;
+	int	buffer;
+
+	if (x->len < 2)
+		return ;
+	buffer = x->stack[0];
+	i = -1;
+	while (++i < x->len)
+		x->stack[i] = x->stack[i + 1];
+	x->stack[x->len - 1] = buffer;
+	if (c == 'a')
+		ft_putstr_fd("ra\n", 1);
+	else if (c == 'b')
+		ft_putstr_fd("rb\n", 1);
+}
+
+void	reverse(t_stack *x, char c)
+{
+	int	i;
+	int	buffer;
+
+	if (x->len < 2)
+		return ;
+	buffer = x->stack[x->len - 1];
+	i = -1;
+	while (++i < x->len)
+		x->stack[x->len - i - 1] = x->stack[x->len - i - 2];
+	x->stack[0] = buffer;
+	if (c == 'a')
+		ft_putstr_fd("rra\n", 1);
+	else if (c == 'b')
+		ft_putstr_fd("rrb\n", 1);
+}
+
+void	print_tab(t_stack a, t_stack b, int to_print)
+{
+	int	i;
+
+	if (to_print == 'a')
 	{
-		printf("atoi : %i\n", ft_atoi(argv[i]));
-		if (ft_strlen(argv[i]) > 11)
-			return (1);
-		if (ft_atoi(argv[i]) == -1)
+		i = 0;
+		printf("=====Tab A=====\n");
+		while (i < a.len)
 		{
-			if (argv[i][0] == '-' && ft_strlen(argv[i]) == 11)
-				return (1);
-			else if (ft_strlen(argv[i]) == 10)
-				return (1);
+			printf("%d\n", a.stack[i]);
+			i++;
 		}
-		i++;
+		printf("===============\n");
 	}
-	return (0);
+	else if (to_print == 'b')
+	{
+		i = 0;
+		printf("=====Tab B=====\n");
+		while (i < b.len)
+		{
+			printf("%d\n", b.stack[i]);
+			i++;
+		}
+		printf("===============\n");
+	}
 }
