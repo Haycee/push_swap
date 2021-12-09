@@ -6,7 +6,7 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/08 17:30:44 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 13:16:18 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ typedef struct s_stack
 
 /* push_swap.c */
 
-void	push_swap(int argc, char **argv);
+void	push_swap(t_stack *a, t_stack *b, int argc);
 void	stack_init(t_stack *a, t_stack *b, int argc, char **argv);
+int		is_sorted(t_stack *a);
+void	swap_three(t_stack *a, t_stack *b, int argc);
 
 /* push_swap_utils.c */
 
@@ -37,9 +39,9 @@ void	print_tab(t_stack a, t_stack b, int to_print); // !
 
 /* check_args.c */
 
-int		process_args(int argc, char **argv);
 int		is_nbr(int argc, char **argv);
 int		is_int(int argc, char **argv);
 int		is_unique(int argc, char **argv);
+int		process_args(int argc, char **argv);
 
 #endif

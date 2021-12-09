@@ -6,16 +6,42 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/08 17:30:46 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 13:36:21 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void push_swap(int argc, char **argv)
+void	push_swap(t_stack *a, t_stack *b, int argc)
 {
-	(void)argc;
-	(void)argv;
+	if (argc == 2)
+		return	;	
+	if (argc <= 4)
+		swap_three(&a, &b, argc);
+}
+
+void	swap_three(t_stack *a, t_stack *b, int argc)
+{
+	if (a->stack[0] > a->stack[1])
+	{
+		
+	}	
+		
+}
+
+int	is_sorted(t_stack *a)
+{
+	int	i;
+
+	i = 0;
+	while (i != a->len - 1)
+	{
+		printf("\n");
+		if (a->stack[i] > a->stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 void	stack_init(t_stack *a, t_stack *b, int argc, char **argv)
@@ -31,7 +57,7 @@ void	stack_init(t_stack *a, t_stack *b, int argc, char **argv)
 		a->stack[i - 1] = ft_atoi(argv[i]);
 }
 
-int main(int argc, char **argv) 
+int main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
@@ -41,20 +67,7 @@ int main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 1);
 		return (0);
 	}
-	
 	stack_init(&a, &b, argc, argv);
-
-	// print_tab(a, b, 'a');
-	reverse(&a, 'x');
-	swap(&a, 'a');
-	rotate(&a, 'a');
-	rotate(&a, 'a');
-	rotate(&a, 'a');
-	rotate(&a, 'a');
-	rotate(&a, 'a');
-	push(&b, &a, 'a');
-	push(&a, &b, 'b');
-	// print_tab(a, b, 'a');
-
+	push_swap(&a, &b);
 	return (0);
 }

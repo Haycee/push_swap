@@ -2,9 +2,6 @@
 
 int	process_args(int argc, char **argv)
 {
-	// printf("is_nbr		: %i\n", is_nbr(argc, argv));
-	// printf("is_int		: %i\n", is_int(argc, argv));
-	// printf("is_unique	: %i\n", is_unique(argc, argv));
 	if (!is_nbr(argc, argv) || !is_int(argc, argv) || !is_unique(argc, argv))
 		return (1);
 	return (0);
