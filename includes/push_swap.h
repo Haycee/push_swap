@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/09 13:16:18 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 17:15:09 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct s_stack
 
 /* push_swap.c */
 
-void	push_swap(t_stack *a, t_stack *b, int argc);
+void	push_swap(t_stack *a, t_stack *b);
 void	stack_init(t_stack *a, t_stack *b, int argc, char **argv);
 int		is_sorted(t_stack *a);
-void	swap_three(t_stack *a, t_stack *b, int argc);
+void	swap_three(t_stack *a, t_stack *b);
 
 /* push_swap_utils.c */
 
