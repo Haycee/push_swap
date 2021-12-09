@@ -6,7 +6,7 @@
 /*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/09 18:06:32 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 20:12:12 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack
 void	push_swap(t_stack *a, t_stack *b);
 void	stack_init(t_stack *a, t_stack *b, int argc, char **argv);
 int		is_sorted(t_stack *a);
-void	swap_three(t_stack *a, t_stack *b);
+void	swap_three(t_stack *x);
 
 /* push_swap_utils.c */
 

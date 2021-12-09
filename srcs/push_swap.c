@@ -6,7 +6,7 @@
 /*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/09 18:06:31 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 20:12:12 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,28 @@ void	push_swap(t_stack *a, t_stack *b)
 	if (a->len < 2)
 		return	;
 	if (a->len < 4)
-		swap_three(a, b);
+		swap_three(a);
 }
 
-void	swap_three(t_stack *a, t_stack *b)
+void	swap_three(t_stack *x)
 {
 	int	i_largest;
 	int i;
 
-	if (a->len == 3)
+	if (x->len == 3)
 	{
 		i_largest = 0;
 		i = -1;
-		while (++i != a->len)
-			if (a->stack[i] > a->stack[i_largest])
+		while (++i != x->len)
+			if (x->stack[i] > x->stack[i_largest])
 				i_largest = i;
 		if (i_largest ==  0)
-			rotate(a, 'a');
+			rotate(x, 'a');
 		else if (i_largest ==  1)
-			reverse(a, 'a');
+			reverse(x, 'a');
 	}
-	if (a->stack[0] > a->stack[1])
-		swap(a, 'a');
+	if (x->stack[0] > x->stack[1])
+		swap(x, 'a');
 }
 
 int	is_sorted(t_stack *a)
