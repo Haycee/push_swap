@@ -4,6 +4,7 @@ INCS		=	./includes/push_swap.h
 
 SRCS		=	./srcs/push_swap.c \
 				./srcs/push_swap_utils.c \
+				./srcs/operations.c \
 				./srcs/check_args.c \
 
 LIBFT_AR	=	./libft/libft.a

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/09 20:12:12 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 13:33:21 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,31 @@ void	push_swap(t_stack *a, t_stack *b)
 		return	;
 	if (a->len < 4)
 		swap_three(a);
+	if (a->len < 6)
+		swap_five(a, b);
 }
+
+void	swap_five(t_stack *a, t_stack *b)
+{
+	int	i_lowest;
+
+	while (a->len != 3)
+	{
+		while (find_lowest(a) != 0)
+		{
+			if (find_lowest(a) >= 2)
+				reverse(a, 'a');
+			else
+				rotate(a, 'a');
+		}
+		push(b, a, 'b');
+	}
+	swap_three(a);
+	push(a, b, 'a');
+	push(a, b, 'a');
+}
+
+
 
 void	swap_three(t_stack *x)
 {
@@ -27,11 +51,7 @@ void	swap_three(t_stack *x)
 
 	if (x->len == 3)
 	{
-		i_largest = 0;
-		i = -1;
-		while (++i != x->len)
-			if (x->stack[i] > x->stack[i_largest])
-				i_largest = i;
+		i_largest = find_largest(x);
 		if (i_largest ==  0)
 			rotate(x, 'a');
 		else if (i_largest ==  1)
@@ -39,21 +59,6 @@ void	swap_three(t_stack *x)
 	}
 	if (x->stack[0] > x->stack[1])
 		swap(x, 'a');
-}
-
-int	is_sorted(t_stack *a)
-{
-	int	i;
-
-	i = 0;
-	while (i != a->len - 1)
-	{
-		printf("\n");
-		if (a->stack[i] > a->stack[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 void	stack_init(t_stack *a, t_stack *b, int argc, char **argv)
@@ -80,8 +85,8 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	stack_init(&a, &b, argc, argv);
-	print_tab(a, b, 'a');
 	push_swap(&a, &b);
 	print_tab(a, b, 'a');
+	print_tab(a, b, 'b');
 	return (0);
 }

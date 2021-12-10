@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_args.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/10 11:43:18 by agirardi          #+#    #+#             */
+/*   Updated: 2021/12/10 11:43:19 by agirardi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	process_args(int argc, char **argv)
 {
-	if (!is_nbr(argc, argv) || !is_int(argc, argv) || !is_unique(argc, argv))
+	if (!is_nbr(argc, argv) || !is_int(argc, argv) /*|| !is_unique(argc, argv)*/)
 		return (1);
 	return (0);
 }
@@ -52,22 +64,22 @@ int	is_int(int argc, char **argv)
 	return (1);
 }
 
-int	is_unique(int argc, char **argv)
-{
-	int	i;
-	int	j;
+// int	is_unique(int argc, char **argv)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	while (i != argc)
-	{
-		j = i + 1;
-		while (j != argc)
-		{
-			if (ft_strncmp(argv[i], argv[j], ft_strlen(argv[i])) == 0)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
+// 	i = 0;
+// 	while (i != argc)
+// 	{
+// 		j = i + 1;
+// 		while (j != argc)
+// 		{
+// 			if (ft_strncmp(argv[i], argv[j], ft_strlen(argv[i])) == 0)
+// 				return (0);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
