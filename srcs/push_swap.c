@@ -6,7 +6,7 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 13:33:21 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 13:51:12 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,12 @@ void	push_swap(t_stack *a, t_stack *b)
 
 void	swap_five(t_stack *a, t_stack *b)
 {
-	int	i_lowest;
-
+	if (find_lowest(a) == 1)
+		swap(a, 'a');
 	while (a->len != 3)
 	{
 		while (find_lowest(a) != 0)
-		{
-			if (find_lowest(a) >= 2)
 				reverse(a, 'a');
-			else
-				rotate(a, 'a');
-		}
 		push(b, a, 'b');
 	}
 	swap_three(a);
@@ -42,13 +37,10 @@ void	swap_five(t_stack *a, t_stack *b)
 	push(a, b, 'a');
 }
 
-
-
 void	swap_three(t_stack *x)
 {
 	int	i_largest;
-	int i;
-
+	
 	if (x->len == 3)
 	{
 		i_largest = find_largest(x);
