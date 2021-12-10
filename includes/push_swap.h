@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 15:35:55 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 19:27:05 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	swap_five(t_stack *a, t_stack *b);
 
 /* push_swap_utils.c */
 
-int		is_sorted(t_stack *a);
+int		is_sorted(t_stack *a); // !
 int		find_largest(t_stack *x);
 int		find_lowest(t_stack *x);
 void	print_tab(t_stack a, t_stack b, int to_print); // !
@@ -48,9 +48,8 @@ void 	reverse(t_stack *x, char c);
 /* parse_args.c */
 
 int		is_nbr(int argc, char **argv);
-int		is_int(int argc, char **argv);
+// int		is_int(int argc, char **argv);
 int		is_unique(int argc, char **argv);
 int		process_args(int argc, char **argv);
-char**	get_args(int argc, char **argv);
 
 #endif

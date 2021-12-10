@@ -3,41 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:43:18 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 16:59:23 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 19:21:15 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char**	get_args(int argc, char **argv)
-{
-	int	i;
-	char **args;
-
-	i = 0;
-	if (argc > 2)
-	{
-		args = malloc(sizeof(char *) * argc);
-		while (++i != argc)
-			args[i - 1] = argv[i];
-		return (args);
-	}
-	args = ft_split(argv[1], ' ');
-	i = 0;
-	while (i < argc - 1)
-	{
-		printf("arg %i : %s\n", i, args[i]);
-		i++;
-	}
-	return (args);
-}
-
 int	process_args(int argc, char **argv)
 {
-	if (!is_nbr(argc, argv) || !is_int(argc, argv) || !is_unique(argc, argv))
+	if (!is_nbr(argc, argv) || /* !is_int(argc, argv) || */ !is_unique(argc, argv))
 		return (1);
 	return (0);
 }
@@ -66,26 +43,26 @@ int is_nbr(int argc ,char **argv)
 	 return (1);
 }
 
-int	is_int(int argc, char **argv)
-{
-	int	i;
+// int	is_int(int argc, char **argv)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i != argc)
-	{
-		if (ft_strlen(argv[i]) > 11)
-			return (0);
-		if (ft_atoi(argv[i]) == -1)
-		{
-			if (argv[i][0] == '-' && ft_strlen(argv[i]) == 11)
-				return (0);
-			else if (ft_strlen(argv[i]) == 10)
-				return (0);
-		}
-		i++;
-	}
-	return (1);
-}
+// 	i = 0;
+// 	while (i != argc)
+// 	{
+// 		if (ft_strlen(argv[i]) > 11)
+// 			return (0);
+// 		if (ft_atoi(argv[i]) == -1)
+// 		{
+// 			if (argv[i][0] == '-' && ft_strlen(argv[i]) == 11)
+// 				return (0);
+// 			else if (ft_strlen(argv[i]) == 10)
+// 				return (0);
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 int	is_unique(int argc, char **argv)
 {

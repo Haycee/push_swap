@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 16:58:46 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 19:27:05 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	push_swap(t_stack *a, t_stack *b)
 
 // void	swap_hundred(t_stack *a, t_stack *b)
 // {
-	
+
 // }
 
 void	swap_five(t_stack *a, t_stack *b)
@@ -48,7 +48,7 @@ void	swap_five(t_stack *a, t_stack *b)
 void	swap_three(t_stack *x)
 {
 	int	i_largest;
-	
+
 	if (x->len == 3)
 	{
 		i_largest = find_largest(x);
@@ -78,16 +78,7 @@ int main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	char	**args;
 
-	// int i = 0;
-	args = get_args(argc, argv);
-	// while (i < argc - 1)
-	// {
-	// 	printf("arg %i : %s\n", i, args[i]);
-	// 	i++;
-	// }
-	
 	if (argc < 2 || process_args(argc, argv) == 1)
 	{
 		ft_putstr_fd("Error\n", 1);
@@ -95,5 +86,6 @@ int main(int argc, char **argv)
 	}
 	stack_init(&a, &b, argc, argv);
 	push_swap(&a, &b);
+	print_tab(a, b, 'a');
 	return (0);
 }
