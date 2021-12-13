@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 11:52:39 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 23:23:29 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 typedef struct s_stack
 {
 	int	len;
-	int *stack;
-} t_stack;
+	int	*stack;
+}	t_stack;
 
 /* push_swap.c */
 
 void	push_swap(t_stack *a, t_stack *b);
-void	stack_init(t_stack *a, t_stack *b, int argc, char **argv);
 void	empty_a(t_stack *a, t_stack *b, int chunk_size);
+void	error_handler(t_stack *a, t_stack *b);
+int		stack_init(t_stack *a, t_stack *b, int argc, char **argv);
 
 /* swap.c */
 
@@ -39,15 +40,15 @@ void	swap_large(t_stack *a, t_stack *b);
 int		is_sorted(t_stack *x);
 int		is_lowest(t_stack *x);
 int		is_largest(t_stack *x);
+int		value_to_index(t_stack *a);
 void	bubble_sort(int *array, int len);
-void	value_to_index(t_stack *a);
 
 /* operations.c */
 
 void	swap(t_stack *x, char c);
 void	push(t_stack *x, t_stack *y, char c);
-void 	rotate(t_stack *x, char c);
-void 	reverse(t_stack *x, char c);
+void	rotate(t_stack *x, char c);
+void	reverse(t_stack *x, char c);
 
 /* parse_args.c */
 

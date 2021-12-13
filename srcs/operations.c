@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:43:09 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 16:40:00 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 23:17:54 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	push(t_stack *x, t_stack *y, char c)
 		ft_putstr_fd("pb\n", 1);
 }
 
-void 	rotate(t_stack *x, char c)
+void	rotate(t_stack *x, char c)
 {
 	int	i;
 	int	buffer;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 05:14:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 12:15:38 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 23:37:09 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	swap_three(t_stack *a)
 	if (a->len == 3)
 	{
 		i_largest = is_largest(a);
-		if (i_largest ==  0)
+		if (i_largest == 0)
 			rotate(a, 'a');
-		else if (i_largest ==  1)
+		else if (i_largest == 1)
 			reverse(a, 'a');
 	}
 	if (a->stack[0] > a->stack[1])
@@ -35,7 +35,7 @@ void	swap_five(t_stack *a, t_stack *b)
 	while (a->len != 3)
 	{
 		while (is_lowest(a) != 0)
-				reverse(a, 'a');
+			reverse(a, 'a');
 		push(b, a, 'b');
 	}
 	swap_three(a);
@@ -48,7 +48,11 @@ void	swap_hundred(t_stack *a, t_stack *b)
 	int	i;
 	int	j;
 
-	value_to_index(a);
+	if (!value_to_index(a))
+	{
+		error_handler(a, b);
+		return ;
+	}
 	empty_a(a, b, 20);
 	i = -1;
 	while (b->len != 0)
@@ -57,11 +61,10 @@ void	swap_hundred(t_stack *a, t_stack *b)
 		{
 			j = -1;
 			if (i < b->len / 2)
-				while(++j != i)
+				while (++j != i)
 					rotate(b, 'b');
-			j = i - 1;
 			if (i >= b->len / 2)
-				while (++j != b->len)
+				while (++j + i != b->len)
 					reverse(b, 'b');
 			push(a, b, 'a');
 			i = -1;
@@ -74,7 +77,11 @@ void	swap_large(t_stack *a, t_stack *b)
 	int	i;
 	int	j;
 
-	value_to_index(a);
+	if (!value_to_index(a))
+	{
+		error_handler(a, b);
+		return ;
+	}
 	empty_a(a, b, 40);
 	i = -1;
 	while (b->len != 0)
@@ -83,11 +90,10 @@ void	swap_large(t_stack *a, t_stack *b)
 		{
 			j = -1;
 			if (i < b->len / 2)
-				while(++j != i)
+				while (++j != i)
 					rotate(b, 'b');
-			j = i - 1;
 			if (i >= b->len / 2)
-				while (++j != b->len)
+				while (++j + i != b->len)
 					reverse(b, 'b');
 			push(a, b, 'a');
 			i = -1;

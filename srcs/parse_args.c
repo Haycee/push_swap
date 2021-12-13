@@ -6,7 +6,7 @@
 /*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:43:18 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 19:21:15 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 23:18:45 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	process_args(int argc, char **argv)
 	return (0);
 }
 
-int is_nbr(int argc ,char **argv)
+int	is_nbr(int argc, char **argv)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 1;
 	while (i != argc)
@@ -40,7 +40,7 @@ int is_nbr(int argc ,char **argv)
 		}
 		i++;
 	}
-	 return (1);
+	return (1);
 }
 
 // int	is_int(int argc, char **argv)

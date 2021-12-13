@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:01:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 11:44:37 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 23:37:10 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	is_largest(t_stack *x)
 {
 	int	i_largest;
-	int i;
+	int	i;
 
 	i_largest = 0;
 	i = -1;
@@ -28,7 +28,7 @@ int	is_largest(t_stack *x)
 int	is_lowest(t_stack *x)
 {
 	int	i_lowest;
-	int i;
+	int	i;
 
 	i_lowest = 0;
 	i = -1;
@@ -52,13 +52,15 @@ int	is_sorted(t_stack *x)
 	return (1);
 }
 
-void	value_to_index(t_stack *a)
+int	value_to_index(t_stack *a)
 {
 	int	*array;
 	int	i;
-	int j;
+	int	j;
 
 	array = malloc(sizeof(int) * a->len - 1);
+	if (!array)
+		return (0);
 	i = -1;
 	while (++i < a->len)
 		array[i] = a->stack[i];
@@ -76,11 +78,12 @@ void	value_to_index(t_stack *a)
 			}
 		}
 	}
+	return (1);
 }
 
 void	bubble_sort(int *array, int len)
 {
-	int buffer;
+	int	buffer;
 	int	check;
 	int	i;
 
@@ -100,33 +103,5 @@ void	bubble_sort(int *array, int len)
 			}
 			i++;
 		}
-	}
-}
-
-void	print_tab(t_stack a, t_stack b, int to_print)
-{
-	int	i;
-
-	if (to_print == 'a')
-	{
-		i = 0;
-		printf("=====Tab A=====\n");
-		while (i < a.len)
-		{
-			printf("%d\n", a.stack[i]);
-			i++;
-		}
-		printf("===============\n");
-	}
-	else if (to_print == 'b')
-	{
-		i = 0;
-		printf("=====Tab B=====\n");
-		while (i < b.len)
-		{
-			printf("%d\n", b.stack[i]);
-			i++;
-		}
-		printf("===============\n");
 	}
 }
