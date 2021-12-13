@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:01:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 15:35:01 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/12 00:45:37 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,69 @@ int	find_lowest(t_stack *x)
 	return (i_lowest);
 }
 
-int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *x)
 {
 	int	i;
 
 	i = 0;
-	while (i != a->len - 1)
+	while (i != x->len - 1)
 	{
-		printf("\n");
-		if (a->stack[i] > a->stack[i + 1])
+		if (x->stack[i] > x->stack[i + 1])
 			return (0);
 		i++;
 	}
 	return (1);
+}
+
+void	value_to_index(t_stack *a)
+{
+	int	*array;
+	int	i;
+	int j;
+
+	array = malloc(sizeof(int) * a->len - 1);
+	i = -1;
+	while (++i < a->len)
+		array[i] = a->stack[i];
+	bubble_sort(array, a->len);
+	i = -1;
+	while (++i < a->len)
+	{
+		j = -1;
+		while (++j < a->len)
+		{
+			if (a->stack[i] == array[j])
+			{
+				a->stack[i] = j;
+				break ;
+			}
+		}
+	}
+}
+
+void	bubble_sort(int *array, int len)
+{
+	int buffer;
+	int	check;
+	int	i;
+
+	check = 1;
+	while (check != 0)
+	{
+		i = 0;
+		check = 0;
+		while (i < len - 1)
+		{
+			if (array[i] > array[i + 1])
+			{
+				buffer = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = buffer;
+				check++;
+			}
+			i++;
+		}
+	}
 }
 
 void	print_tab(t_stack a, t_stack b, int to_print)

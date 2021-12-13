@@ -1,26 +1,27 @@
 NAME		=	push_swap
 
-INCS		=	./includes/push_swap.h \
+INCS		=	./includes
 
 SRCS		=	./srcs/push_swap.c \
 				./srcs/push_swap_utils.c \
 				./srcs/operations.c \
 				./srcs/parse_args.c \
+				./srcs/swap.c \
 
-LIBFT_AR	=	./libft/libft.a \
+LIBFT_AR	=	./libft/libft.a
 
 OBJS		=	${SRCS:.c=.o}
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror -I ${INCS}
+CFLAGS		=	-Wall -g -Wextra -Werror -I ${INCS} # ! -g
 
 RM			=	rm -rf
 
 all : libft ${NAME}
 
 libft:
-	make -C ./libft
+	@make -C ./libft --no-print-directory
 
 %.o: %.c ${INCS}
 	${CC} ${CFLAGS} -c $< -o $@

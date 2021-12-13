@@ -6,7 +6,7 @@
 /*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/10 19:27:05 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 05:29:14 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,55 @@
 
 void	push_swap(t_stack *a, t_stack *b)
 {
-	if (a->len < 2)
+	if (a->len <= 1 || is_sorted(a))
 		return	;
-	if (a->len < 4)
+	if (a->len <= 3)
 		swap_three(a);
-	if (a->len < 6)
+	if (a->len > 3 && a->len <= 5)
 		swap_five(a, b);
-
-	//./push_swap 1 2 3 4
-	// pb pa
+	if (a->len > 5 && a->len <= 100)
+		swap_hundred(a, b);
 }
 
-// void	swap_hundred(t_stack *a, t_stack *b)
-// {
+// printf("%i < %i				i = %i			a->len = %i\n", a->stack[i], chunk, i, a->len);
 
-// }
-
-void	swap_five(t_stack *a, t_stack *b)
+void	empty_a(t_stack *a, t_stack *b, int chunk_size)
 {
-	if (find_lowest(a) == 1)
-		swap(a, 'a');
-	while (a->len != 3)
-	{
-		while (find_lowest(a) != 0)
-				reverse(a, 'a');
-		push(b, a, 'b');
-	}
-	swap_three(a);
-	push(a, b, 'a');
-	push(a, b, 'a');
-}
+	int	i;
+	int	j;
+	int	chunk;
 
-void	swap_three(t_stack *x)
-{
-	int	i_largest;
-
-	if (x->len == 3)
+	chunk = chunk_size;
+	while (a->len != 0)
 	{
-		i_largest = find_largest(x);
-		if (i_largest ==  0)
-			rotate(x, 'a');
-		else if (i_largest ==  1)
-			reverse(x, 'a');
+		i = -1;
+		while (++i < a->len)
+			if (a->stack[i] < chunk)
+			{
+				j = -1;
+				if (i < a->len / 2)
+					while(++j != i)
+						rotate(a, 'a');
+				j = i - 1;
+				if (i >= a->len / 2)
+					while (++j != a->len)
+						reverse(a, 'a');
+				push(b, a, 'b');
+				i = -1;
+			}
+		chunk += chunk_size;
 	}
-	if (x->stack[0] > x->stack[1])
-		swap(x, 'a');
 }
 
 void	stack_init(t_stack *a, t_stack *b, int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
 	b->len = 0;
 	a->len = argc - 1;
 	a->stack = malloc(sizeof(int) * a->len);
 	b->stack = malloc(sizeof(int) * a->len);
+	i = 0;
 	while (++i != argc)
 		a->stack[i - 1] = ft_atoi(argv[i]);
 }
@@ -79,7 +72,7 @@ int main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
-	if (argc < 2 || process_args(argc, argv) == 1)
+	if (argc <= 1 || process_args(argc, argv) == 1)
 	{
 		ft_putstr_fd("Error\n", 1);
 		return (0);
@@ -87,5 +80,6 @@ int main(int argc, char **argv)
 	stack_init(&a, &b, argc, argv);
 	push_swap(&a, &b);
 	print_tab(a, b, 'a');
+	print_tab(a, b, 'b');
 	return (0);
 }
