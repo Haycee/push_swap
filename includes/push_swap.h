@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 05:27:11 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 11:52:39 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-# include <stdio.h> // !
 
 typedef struct s_stack
 {
@@ -33,15 +32,15 @@ void	empty_a(t_stack *a, t_stack *b, int chunk_size);
 void	swap_three(t_stack *a);
 void	swap_five(t_stack *a, t_stack *b);
 void	swap_hundred(t_stack *a, t_stack *b);
+void	swap_large(t_stack *a, t_stack *b);
 
 /* push_swap_utils.c */
 
 int		is_sorted(t_stack *x);
-int		find_lowest(t_stack *x);
-int		find_largest(t_stack *x);
+int		is_lowest(t_stack *x);
+int		is_largest(t_stack *x);
 void	bubble_sort(int *array, int len);
 void	value_to_index(t_stack *a);
-void	print_tab(t_stack a, t_stack b, int to_print); // !
 
 /* operations.c */
 

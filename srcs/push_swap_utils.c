@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:01:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/12 00:45:37 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 11:44:37 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	find_largest(t_stack *x)
+int	is_largest(t_stack *x)
 {
 	int	i_largest;
 	int i;
@@ -25,7 +25,7 @@ int	find_largest(t_stack *x)
 	return (i_largest);
 }
 
-int	find_lowest(t_stack *x)
+int	is_lowest(t_stack *x)
 {
 	int	i_lowest;
 	int i;

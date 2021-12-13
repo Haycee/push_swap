@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 05:29:14 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/13 11:52:27 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	push_swap(t_stack *a, t_stack *b)
 		swap_five(a, b);
 	if (a->len > 5 && a->len <= 100)
 		swap_hundred(a, b);
+	if (a->len > 100)
+		swap_large(a, b);
 }
-
-// printf("%i < %i				i = %i			a->len = %i\n", a->stack[i], chunk, i, a->len);
 
 void	empty_a(t_stack *a, t_stack *b, int chunk_size)
 {
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 	}
 	stack_init(&a, &b, argc, argv);
 	push_swap(&a, &b);
-	print_tab(a, b, 'a');
-	print_tab(a, b, 'b');
+	// print_tab(a, b, 'a');
+	// print_tab(a, b, 'b');
 	return (0);
 }
