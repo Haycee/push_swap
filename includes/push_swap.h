@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 23:23:29 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 10:48:37 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int		stack_init(t_stack *a, t_stack *b, int argc, char **argv);
 
 void	swap_three(t_stack *a);
 void	swap_five(t_stack *a, t_stack *b);
-void	swap_hundred(t_stack *a, t_stack *b);
-void	swap_large(t_stack *a, t_stack *b);
+void	swap_large(t_stack *a, t_stack *b, int chunck_size);
 
 /* push_swap_utils.c */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 05:14:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 23:37:09 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 10:46:37 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	swap_five(t_stack *a, t_stack *b)
 	push(a, b, 'a');
 }
 
-void	swap_hundred(t_stack *a, t_stack *b)
+void	swap_large(t_stack *a, t_stack *b, int chunk_size)
 {
 	int	i;
 	int	j;
@@ -53,36 +53,7 @@ void	swap_hundred(t_stack *a, t_stack *b)
 		error_handler(a, b);
 		return ;
 	}
-	empty_a(a, b, 20);
-	i = -1;
-	while (b->len != 0)
-	{
-		if (is_largest(b) == ++i)
-		{
-			j = -1;
-			if (i < b->len / 2)
-				while (++j != i)
-					rotate(b, 'b');
-			if (i >= b->len / 2)
-				while (++j + i != b->len)
-					reverse(b, 'b');
-			push(a, b, 'a');
-			i = -1;
-		}
-	}
-}
-
-void	swap_large(t_stack *a, t_stack *b)
-{
-	int	i;
-	int	j;
-
-	if (!value_to_index(a))
-	{
-		error_handler(a, b);
-		return ;
-	}
-	empty_a(a, b, 40);
+	empty_a(a, b, chunk_size);
 	i = -1;
 	while (b->len != 0)
 	{

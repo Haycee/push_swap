@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 23:37:09 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 11:00:30 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	push_swap(t_stack *a, t_stack *b)
 	if (a->len > 3 && a->len <= 5)
 		swap_five(a, b);
 	if (a->len > 5 && a->len <= 100)
-		swap_hundred(a, b);
+		swap_large(a, b, 20);
 	if (a->len > 100)
-		swap_large(a, b);
+		swap_large(a, b, 40);
 }
 
 void	empty_a(t_stack *a, t_stack *b, int chunk_size)
@@ -73,13 +73,8 @@ int	stack_init(t_stack *a, t_stack *b, int argc, char **argv)
 
 void	error_handler(t_stack *a, t_stack *b)
 {
-	if (a->stack)
-		free(a->stack);
-	if (b->stack)
-		free(b->stack);
-	// !
-	// !
-	// !
+	free(a->stack);
+	free(b->stack);
 	ft_putstr_fd("Error\n", 1);
 }
 
