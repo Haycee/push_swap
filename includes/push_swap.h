@@ -6,7 +6,7 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/14 10:48:37 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 14:16:23 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	swap_large(t_stack *a, t_stack *b, int chunck_size);
 int		is_sorted(t_stack *x);
 int		is_lowest(t_stack *x);
 int		is_largest(t_stack *x);
-int		value_to_index(t_stack *a);
-void	bubble_sort(int *array, int len);
+int		value_to_index(t_stack *a, int i);
 
 /* operations.c */
 
@@ -52,7 +51,7 @@ void	reverse(t_stack *x, char c);
 /* parse_args.c */
 
 int		is_nbr(int argc, char **argv);
-// int		is_int(int argc, char **argv);
+int		is_int(int argc, char **argv);
 int		is_unique(int argc, char **argv);
 int		process_args(int argc, char **argv);
 

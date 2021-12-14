@@ -6,7 +6,7 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:59:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/14 11:00:30 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 14:44:00 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	push_swap(&a, &b);
+	free(a.stack);
+	free(b.stack);
 	return (0);
 }

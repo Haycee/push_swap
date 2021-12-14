@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agirardi <agirardi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:01:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/13 23:37:10 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 14:16:24 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,36 +52,7 @@ int	is_sorted(t_stack *x)
 	return (1);
 }
 
-int	value_to_index(t_stack *a)
-{
-	int	*array;
-	int	i;
-	int	j;
-
-	array = malloc(sizeof(int) * a->len - 1);
-	if (!array)
-		return (0);
-	i = -1;
-	while (++i < a->len)
-		array[i] = a->stack[i];
-	bubble_sort(array, a->len);
-	i = -1;
-	while (++i < a->len)
-	{
-		j = -1;
-		while (++j < a->len)
-		{
-			if (a->stack[i] == array[j])
-			{
-				a->stack[i] = j;
-				break ;
-			}
-		}
-	}
-	return (1);
-}
-
-void	bubble_sort(int *array, int len)
+static void	bubble_sort(int *array, int len)
 {
 	int	buffer;
 	int	check;
@@ -104,4 +75,32 @@ void	bubble_sort(int *array, int len)
 			i++;
 		}
 	}
+}
+
+int	value_to_index(t_stack *a, int i)
+{
+	int	*array;
+	int	j;
+
+	array = malloc(sizeof(int) * a->len - 1);
+	if (!array)
+		return (0);
+	while (++i < a->len)
+		array[i] = a->stack[i];
+	bubble_sort(array, a->len);
+	i = -1;
+	while (++i < a->len)
+	{
+		j = -1;
+		while (++j < a->len)
+		{
+			if (a->stack[i] == array[j])
+			{
+				a->stack[i] = j;
+				break ;
+			}
+		}
+	}
+	free (array);
+	return (1);
 }

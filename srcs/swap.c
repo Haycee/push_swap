@@ -6,7 +6,7 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 05:14:45 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/14 10:46:37 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/14 14:13:28 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	swap_large(t_stack *a, t_stack *b, int chunk_size)
 	int	i;
 	int	j;
 
-	if (!value_to_index(a))
+	if (!value_to_index(a, -1))
 	{
 		error_handler(a, b);
 		return ;
