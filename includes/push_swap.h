@@ -6,14 +6,14 @@
 /*   By: agirardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:15:00 by agirardi          #+#    #+#             */
-/*   Updated: 2021/12/14 14:16:23 by agirardi         ###   ########lyon.fr   */
+/*   Updated: 2022/04/23 01:56:16 by agirardi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_stack
 {
