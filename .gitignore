@@ -4,5 +4,4 @@
 *.o
 *.a
 .dSYM
-libft
 push_swap
