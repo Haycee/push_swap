@@ -73,8 +73,10 @@ int	stack_init(t_stack *a, t_stack *b, int argc, char **argv)
 
 void	error_handler(t_stack *a, t_stack *b)
 {
-	free(a->stack);
-	free(b->stack);
+	if (a->stack)
+		free(a->stack);
+	if (b->stack)
+		free(b->stack);
 	ft_putstr_fd("Error\n", 1);
 }
 
