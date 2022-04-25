@@ -34,7 +34,7 @@ LIBFT_AR	=	./libft/libft.a
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror -I $(INCS)
+CFLAGS		=	-Wall -Wextra -Werror -I $(INC_PATH)
 
 RM			=	rm -rf
 
