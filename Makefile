@@ -34,7 +34,7 @@ LIBFT_AR	=	./libft/libft.a
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror -I $(INC_PATH)
+CFLAGS		=	-Wall -Wextra -Werror
 
 RM			=	rm -rf
 
@@ -58,7 +58,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 	
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCS) Makefile | $(OBJ_PATH)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC_PATH) -c $< -o $@
 	printf "$(BLUE)> Compiling :$(END) $<\n"
 	
 	
